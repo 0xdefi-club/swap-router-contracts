@@ -1,9 +1,13 @@
-import '@nomiclabs/hardhat-ethers'
-import '@nomiclabs/hardhat-etherscan'
-import '@nomiclabs/hardhat-waffle'
-import 'hardhat-typechain'
-import 'hardhat-watcher'
+import { HardhatUserConfig } from 'hardhat/config'
+import '@nomicfoundation/hardhat-toolbox'
+import 'hardhat-abi-exporter'
+import 'hardhat-gas-reporter'
+import 'hardhat-deploy'
 import 'dotenv/config'
+import '@nomicfoundation/hardhat-verify'
+import 'hardhat-contract-sizer'
+import * as tdly from '@tenderly/hardhat-tenderly'
+tdly.setup({ automaticVerifications: false })
 
 const DEFAULT_COMPILER_SETTINGS = {
   version: '0.7.6',
@@ -50,6 +54,11 @@ export default {
     },
     optimism: {
       url: `https://mainnet.optimism.io`,
+    },
+    baseTest: {
+      url: 'https://base-sepolia.blockpi.network/v1/rpc/public',
+      accounts: process.env.privateKey ? [process.env.privateKey] : [],
+      chainId: 84532
     },
   },
   etherscan: {

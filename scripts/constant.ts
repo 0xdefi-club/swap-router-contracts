@@ -1,0 +1,2 @@
+export const factoryAddress = '0xfd8D39298478F7b88FD7687F4B470d095bb8c7Bd'
+export const nonfungiblePositionManagerAddress = '0x6776FbE3B437b8F2f5dfC4BaEC536CD5Be076E14'
